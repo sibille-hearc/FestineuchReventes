@@ -1,12 +1,6 @@
 package ch.hearc.ig.odi.restresources;
 
 
-import ch.hearc.ig.odi.business.Canton;
-import ch.hearc.ig.odi.business.Categorie;
-import ch.hearc.ig.odi.business.Ecole;
-import ch.hearc.ig.odi.business.Offre;
-import ch.hearc.ig.odi.business.Profil;
-import ch.hearc.ig.odi.business.TypeRabais;
 import ch.hearc.ig.odi.filter.Secured;
 import ch.hearc.ig.odi.persistance.Conn;
 import ch.hearc.ig.odi.util.ObjectList;

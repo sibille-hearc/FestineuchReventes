@@ -1,13 +1,6 @@
 package ch.hearc.ig.odi.persistance;
 
-import ch.hearc.ig.odi.business.Canton;
-import ch.hearc.ig.odi.business.Categorie;
-import ch.hearc.ig.odi.business.Ecole;
-import ch.hearc.ig.odi.business.Offre;
-import ch.hearc.ig.odi.business.Profil;
-import ch.hearc.ig.odi.business.TypeRabais;
 import ch.hearc.ig.odi.exception.AuthenticationException;
-import ch.hearc.ig.odi.restresources.OffreResources;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -16,8 +9,6 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import org.apache.commons.lang3.StringUtils;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 
 public class Conn {
   private Connection cnn = null;

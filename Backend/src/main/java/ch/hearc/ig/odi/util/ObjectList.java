@@ -1,8 +1,5 @@
 package ch.hearc.ig.odi.util;
 
-import ch.hearc.ig.odi.business.Canton;
-import ch.hearc.ig.odi.business.Categorie;
-import ch.hearc.ig.odi.business.Ecole;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
