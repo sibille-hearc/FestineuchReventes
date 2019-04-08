@@ -8,6 +8,7 @@ import ch.hearc.ig.odi.filter.AuthenticationFilter;
 import ch.hearc.ig.odi.filter.CORSFilter;
 import ch.hearc.ig.odi.injection.ServiceBinder;
 import ch.hearc.ig.odi.injection.ServiceFeature;
+import ch.hearc.ig.odi.rest.Revente;
 import org.glassfish.jersey.server.ResourceConfig;
 
 public class ResourceLoader extends ResourceConfig {
@@ -17,7 +18,7 @@ public class ResourceLoader extends ResourceConfig {
     register(CORSFilter.class);
     register(AuthenticationFilter.class);
     registerInstances(new ServiceBinder());
-
+    register(new Revente());
   }
 
 }
