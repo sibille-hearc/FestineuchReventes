@@ -1,0 +1,31 @@
+#footer {
+  margin-bottom: 20px;
+}
+
+.error {
+  color:red;
+}
+.form-group--error {
+  animation-name: shakeError;
+  animation-fill-mode: forward;
+  animation-duration: .6s;
+  animation-timing-function: ease-in-out;
+}
+.field {
+  margin-bottom: 10px;
+}
+.field.required label::after{
+  content: '*';
+  color: red;
+}
+.field.valid.error {
+  color:red;
+}
+.error input,
+.field.valid input,
+.field.invalid input {
+  border-color:red !important;
+}
+button.invalid{
+  opacity:0.5;
+}
