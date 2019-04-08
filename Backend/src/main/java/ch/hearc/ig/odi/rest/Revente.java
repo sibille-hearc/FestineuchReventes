@@ -31,7 +31,8 @@ public class Revente {
       @NotNull @FormParam("nom") String nom) {
     try {
       DataManager DM = new DataManager();
-      DM.addTicketCSV(numero, prenom, nom);
+      //DM.addTicketCSV(numero, prenom, nom);
+      DM.changeTicketOwner("FES46240", "Nicolas", "Sibille");
     } catch (Exception e) {
       e.printStackTrace();
       throw new WebApplicationException(Status.BAD_REQUEST);
