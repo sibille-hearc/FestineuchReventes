@@ -2,6 +2,8 @@ package ch.hearc.ig.odi.persistance;
 
 import java.io.File;
 import java.net.URL;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -14,6 +16,10 @@ public class DataManager {
   private final char SEPARATOR = ';';
   private final String SOURCE = "U:\\BilletsVendus.csv";
   private final int COL_UID = 1;
+  private final int COL_PRENOM = 2;
+  private final int COL_NOM = 3;
+  private final int COL_DATERACHAT = 10;
+  private final int COL_ENVENTE = 11;
 
   private void updateCSV(String  replace, int row, int col) throws IOException {
       CSVReader reader = new CSVReader(new FileReader(SOURCE),SEPARATOR);
@@ -48,7 +54,14 @@ public class DataManager {
 
   public void changeTicketOwner(String oldUID, String newPrenom, String newNom) throws Exception {
     int line = searchLinebyTicketNumber(oldUID);
-    updateCSV("FESR92923", line, COL_UID);
+    String newUID = oldUID.replace("FES","FESR");
+    updateCSV(newUID, line, COL_UID);
+    updateCSV(newPrenom, line, COL_PRENOM);
+    updateCSV(newNom, line, COL_NOM);
+    SimpleDateFormat formatter = new SimpleDateFormat("dd.MM.yyyy");
+    String strDateToday = formatter.format(new Date());
+    updateCSV(strDateToday, line, COL_DATERACHAT);
+    updateCSV("oui", line, COL_ENVENTE);
   }
 
 }
