@@ -18,7 +18,10 @@ public class DataManager {
   private final int COL_UID = 1;
   private final int COL_PRENOM = 2;
   private final int COL_NOM = 3;
-  private final int COL_DATERACHAT = 10;
+  private final int COL_DATERACHAT = 4;
+  private final int COL_EMAIL = 5;
+  private final int COL_DATENAISSANCE = 6;
+  private final int COL_GENRE = 7;
   private final int COL_ENVENTE = 11;
 
   private void updateCSV(String  replace, int row, int col) throws IOException {
@@ -52,12 +55,18 @@ public class DataManager {
     return -1;
   }
 
-  public void changeTicketOwner(String oldUID, String newPrenom, String newNom) throws Exception {
+  public void changeTicketOwner(String oldUID, String newPrenom, String newNom, String newEmail, String newDateNaissance, String newGenre) throws Exception {
+    if(newGenre != "Male" || newGenre != "Female") {
+      throw new Exception("Le genre du nouvel acheteur est incorrect");
+    }
     int line = searchLinebyTicketNumber(oldUID);
     String newUID = oldUID.replace("FES","FESR");
     updateCSV(newUID, line, COL_UID);
     updateCSV(newPrenom, line, COL_PRENOM);
     updateCSV(newNom, line, COL_NOM);
+    updateCSV(newEmail, line, COL_EMAIL);
+    updateCSV(newDateNaissance, line, COL_DATENAISSANCE);
+    updateCSV(newGenre, line, COL_GENRE);
     SimpleDateFormat formatter = new SimpleDateFormat("dd.MM.yyyy");
     String strDateToday = formatter.format(new Date());
     updateCSV(strDateToday, line, COL_DATERACHAT);
