@@ -15,7 +15,7 @@ import com.opencsv.*;
 public class DataManager {
 
   private final char SEPARATOR = ';';
-  private final String SOURCE = "BilletsVendus.csv"; //"U:\\BilletsVendus.csv";
+  private final String SOURCE = "U:\\BilletsVendus.csv";
   private final int COL_UID = 1;
   private final int COL_PRENOM = 2;
   private final int COL_NOM = 3;
@@ -77,15 +77,15 @@ public class DataManager {
     int line = searchLinebyTicketNumber(oldUID);
     String newUID = oldUID.replace("FES","FESR");
     updateCSV(newUID, line, COL_UID);
-    updateCSV(newPrenom, line, COL_PRENOM);
-    updateCSV(newNom, line, COL_NOM);
-    updateCSV(newEmail, line, COL_EMAIL);
-    updateCSV(newDateNaissance, line, COL_DATENAISSANCE);
-    updateCSV(newGenre, line, COL_GENRE);
-    SimpleDateFormat formatter = new SimpleDateFormat("dd.MM.yyyy");
-    String strDateToday = formatter.format(new Date());
-    updateCSV(strDateToday, line, COL_DATERACHAT);
-    updateCSV("oui", line, COL_ENVENTE);
+    //updateCSV(newPrenom, line, COL_PRENOM);
+    //updateCSV(newNom, line, COL_NOM);
+    //updateCSV(newEmail, line, COL_EMAIL);
+    //updateCSV(newDateNaissance, line, COL_DATENAISSANCE);
+    //updateCSV(newGenre, line, COL_GENRE);
+    //SimpleDateFormat formatter = new SimpleDateFormat("dd.MM.yyyy");
+    //String strDateToday = formatter.format(new Date());
+    //updateCSV(strDateToday, line, COL_DATERACHAT);
+    //updateCSV("oui", line, COL_ENVENTE);
   }
 
   public Billet getTicketInfo(String UID) throws Exception {
