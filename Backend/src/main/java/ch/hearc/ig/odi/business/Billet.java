@@ -2,7 +2,7 @@ package ch.hearc.ig.odi.business;
 
 public class Billet {
   private int id;
-  private int uid;
+  private String uid;
   private String prenom;
   private String nom;
   private String dateNaissance;
@@ -15,7 +15,7 @@ public class Billet {
   public Billet() {
   }
 
-  public Billet(int id, int uid, String prenom, String nom, String dateNaissance,
+  public Billet(int id, String uid, String prenom, String nom, String dateNaissance,
       String email, String gender, int prixBillet, String adresseIP, String dateAchat) {
     this.id = id;
     this.uid = uid;
@@ -37,11 +37,11 @@ public class Billet {
     this.id = id;
   }
 
-  public int getUid() {
+  public String getUid() {
     return uid;
   }
 
-  public void setUid(int uid) {
+  public void setUid(String uid) {
     this.uid = uid;
   }
 

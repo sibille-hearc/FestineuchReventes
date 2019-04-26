@@ -1,5 +1,6 @@
 package ch.hearc.ig.odi.persistance;
 
+import ch.hearc.ig.odi.business.Billet;
 import java.io.File;
 import java.net.URL;
 import java.text.SimpleDateFormat;
@@ -14,7 +15,7 @@ import com.opencsv.*;
 public class DataManager {
 
   private final char SEPARATOR = ';';
-  private final String SOURCE = "U:\\BilletsVendus.csv";
+  private final String SOURCE = "BilletsVendus.csv"; //"U:\\BilletsVendus.csv";
   private final int COL_UID = 1;
   private final int COL_PRENOM = 2;
   private final int COL_NOM = 3;
@@ -33,6 +34,20 @@ public class DataManager {
       writer.writeAll(csvBody);
       writer.flush();
       writer.close();
+  }
+
+  private Billet readLine(int LineNumber) throws IOException {
+    CSVReader reader = new CSVReader(new FileReader(SOURCE),SEPARATOR);
+    String[] tabLine = reader.readAll().get(LineNumber);
+    reader.close();
+    Billet billet = new Billet();
+    billet.setUid(tabLine[COL_UID]);
+    billet.setNom(tabLine[COL_NOM]);
+    billet.setPrenom(tabLine[COL_PRENOM]);
+    billet.setEmail(tabLine[COL_EMAIL]);
+    billet.setDateNaissance(tabLine[COL_DATENAISSANCE]);
+    billet.setGender(tabLine[COL_GENRE]);
+    return billet;
   }
 
   public void addTicketCSV(String numero, String prenom, String nom) throws Exception {
@@ -56,7 +71,7 @@ public class DataManager {
   }
 
   public void changeTicketOwner(String oldUID, String newPrenom, String newNom, String newEmail, String newDateNaissance, String newGenre) throws Exception {
-    if(newGenre != "Male" || newGenre != "Female") {
+    if(newGenre != "Male" && newGenre != "Female") {
       throw new Exception("Le genre du nouvel acheteur est incorrect");
     }
     int line = searchLinebyTicketNumber(oldUID);
@@ -71,6 +86,11 @@ public class DataManager {
     String strDateToday = formatter.format(new Date());
     updateCSV(strDateToday, line, COL_DATERACHAT);
     updateCSV("oui", line, COL_ENVENTE);
+  }
+
+  public Billet getTicketInfo(String UID) throws Exception {
+    int line = searchLinebyTicketNumber(UID);
+    return readLine(line);
   }
 
 }

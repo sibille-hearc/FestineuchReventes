@@ -32,7 +32,7 @@ public class Revente {
     try {
       DataManager DM = new DataManager();
       //DM.addTicketCSV(numero, prenom, nom);
-      DM.changeTicketOwner("FES46240", "Nicolas", "Sibille");
+      DM.changeTicketOwner("FES46240", "Nicolas", "Sibille", "nicolas.sibille@he-arc.ch","15.02.1994", "Male");
     } catch (Exception e) {
       e.printStackTrace();
       throw new WebApplicationException(Status.BAD_REQUEST);
