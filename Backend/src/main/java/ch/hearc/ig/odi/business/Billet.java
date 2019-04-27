@@ -1,7 +1,7 @@
 package ch.hearc.ig.odi.business;
 
 public class Billet {
-  private int id;
+  private String id;
   private String uid;
   private String prenom;
   private String nom;
@@ -11,11 +11,14 @@ public class Billet {
   private int prixBillet;
   private String adresseIP;
   private String dateAchat;
+  private String dateRachat;
+  private String enVente;
+  private String prixRachat;
 
   public Billet() {
   }
 
-  public Billet(int id, String uid, String prenom, String nom, String dateNaissance,
+  public Billet(String id, String uid, String prenom, String nom, String dateNaissance,
       String email, String gender, int prixBillet, String adresseIP, String dateAchat) {
     this.id = id;
     this.uid = uid;
@@ -29,11 +32,35 @@ public class Billet {
     this.dateAchat = dateAchat;
   }
 
-  public int getId() {
+  public String getDateRachat() {
+    return dateRachat;
+  }
+
+  public void setDateRachat(String dateRachat) {
+    this.dateRachat = dateRachat;
+  }
+
+  public String getEnVente() {
+    return enVente;
+  }
+
+  public void setEnVente(String enVente) {
+    this.enVente = enVente;
+  }
+
+  public String getPrixRachat() {
+    return prixRachat;
+  }
+
+  public void setPrixRachat(String prixRachat) {
+    this.prixRachat = prixRachat;
+  }
+
+  public String getId() {
     return id;
   }
 
-  public void setId(int id) {
+  public void setId(String id) {
     this.id = id;
   }
 

@@ -15,12 +15,16 @@ public class DataManager {
 
   private final char SEPARATOR = ';';
   private final String SOURCE = "U:\\BilletsVendus.csv";
+  private final int COL_ID = 0;
   private final int COL_UID = 1;
   private final int COL_PRENOM = 2;
   private final int COL_NOM = 3;
   private final int COL_DATENAISSANCE = 4;
   private final int COL_EMAIL = 5;
-  private final int COL_GENRE = 7;
+  private final int COL_GENRE = 6;
+  private final int COL_PRIX = 7;
+  private final int COL_ADRESSEIP = 8;
+  private final int COL_DATEACHAT = 9;
   private final int COL_PRIXRACHAT = 10;
   private final int COL_DATERACHAT = 11;
   private final int COL_ENVENTE = 12;
@@ -41,12 +45,18 @@ public class DataManager {
     String[] tabLine = reader.readAll().get(LineNumber);
     reader.close();
     Billet billet = new Billet();
+    billet.setId(tabLine[COL_ID]);
     billet.setUid(tabLine[COL_UID]);
     billet.setNom(tabLine[COL_NOM]);
     billet.setPrenom(tabLine[COL_PRENOM]);
     billet.setEmail(tabLine[COL_EMAIL]);
     billet.setDateNaissance(tabLine[COL_DATENAISSANCE]);
     billet.setGender(tabLine[COL_GENRE]);
+    billet.setDateAchat(tabLine[COL_DATEACHAT]);
+    billet.setAdresseIP(tabLine[COL_ADRESSEIP]);
+    billet.setDateRachat(tabLine[COL_DATERACHAT]);
+    billet.setPrixRachat(tabLine[COL_PRIXRACHAT]);
+    billet.setEnVente(tabLine[COL_ENVENTE]);
     return billet;
   }
 
@@ -54,7 +64,7 @@ public class DataManager {
     CSVReader reader = new CSVReader(new FileReader(SOURCE), SEPARATOR);
     List<String[]> csvBody = reader.readAll();
     for (int i = 0; i < csvBody.size(); i ++) {
-      if(csvBody.get(i)[COL_UID].equals(ticketNumber) && csvBody.get(i)[COL_UID].equals(" "+ticketNumber)) {
+      if(csvBody.get(i)[COL_UID].equals(ticketNumber) || csvBody.get(i)[COL_UID].equals(" "+ticketNumber)) {
         return i;
       }
     }

@@ -1,0 +1,173 @@
+{
+	"info": {
+		"_postman_id": "e75d0315-895a-4972-8faf-a8e5045b6a4b",
+		"name": "FestineuchReventes",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "achat",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "uid",
+							"value": "FES46240",
+							"type": "text"
+						},
+						{
+							"key": "prenom",
+							"value": "Nicolas",
+							"type": "text"
+						},
+						{
+							"key": "nom",
+							"value": "Sibille",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "nicolas.sibille@he-arc.ch",
+							"type": "text"
+						},
+						{
+							"key": "dateNaissance",
+							"value": "15.02.1994",
+							"type": "text"
+						},
+						{
+							"key": "gender",
+							"value": "male",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8085/rest/client/achat",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8085",
+					"path": [
+						"rest",
+						"client",
+						"achat"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "miseEnVente",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "uid",
+							"value": "FES46240",
+							"type": "text"
+						},
+						{
+							"key": "prix",
+							"value": "80",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8085/rest/client/miseEnVente",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8085",
+					"path": [
+						"rest",
+						"client",
+						"miseEnVente"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ticket",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:8085/rest/client/ticket/FES46240",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8085",
+					"path": [
+						"rest",
+						"client",
+						"ticket",
+						"FES46240"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ticketsEnVente",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:8085/rest/client/ticketsEnVente",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8085",
+					"path": [
+						"rest",
+						"client",
+						"ticketsEnVente"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
