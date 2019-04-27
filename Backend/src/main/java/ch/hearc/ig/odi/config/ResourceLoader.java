@@ -16,7 +16,7 @@ public class ResourceLoader extends ResourceConfig {
   public ResourceLoader() {
     register(ServiceFeature.class);
     register(CORSFilter.class);
-    register(AuthenticationFilter.class);
+    //register(AuthenticationFilter.class);
     registerInstances(new ServiceBinder());
     register(new Revente());
   }
