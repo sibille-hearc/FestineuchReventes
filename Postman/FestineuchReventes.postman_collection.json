@@ -47,7 +47,7 @@
 						},
 						{
 							"key": "gender",
-							"value": "male",
+							"value": "Male",
 							"type": "text"
 						}
 					]
