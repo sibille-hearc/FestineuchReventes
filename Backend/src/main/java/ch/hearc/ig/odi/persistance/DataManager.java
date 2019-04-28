@@ -14,7 +14,7 @@ import com.opencsv.*;
 public class DataManager {
 
   private final char SEPARATOR = ';';
-  private final String SOURCE = "/home/adminig/Desktop"; //"D:\\Documents\\Cours_HE-ARC\\6semestre\\ArchitectureSI\\FestineuchReventes\\FestineuchReventes\\Backend\\BilletsVendus.csv";
+  private final String SOURCE = "/home/adminig/Desktop/BilletsVendus.csv"; //"D:\\Documents\\Cours_HE-ARC\\6semestre\\ArchitectureSI\\FestineuchReventes\\FestineuchReventes\\Backend\\BilletsVendus.csv";
   private final int COL_ID = 0;
   private final int COL_UID = 1;
   private final int COL_PRENOM = 2;
