@@ -14,7 +14,7 @@ import com.opencsv.*;
 public class DataManager {
 
   private final char SEPARATOR = ';';
-  private final String SOURCE = "U:\\BilletsVendus.csv";
+  private final String SOURCE = "D:\\Documents\\Cours_HE-ARC\\6semestre\\ArchitectureSI\\FestineuchReventes\\FestineuchReventes\\Backend\\BilletsVendus.csv";
   private final int COL_ID = 0;
   private final int COL_UID = 1;
   private final int COL_PRENOM = 2;
@@ -34,7 +34,7 @@ public class DataManager {
       List<String[]> csvBody = reader.readAll();
       csvBody.get(row)[col]=replace;
       reader.close();
-      CSVWriter writer = new CSVWriter(new FileWriter(SOURCE),SEPARATOR,' ');
+      CSVWriter writer = new CSVWriter(new FileWriter(SOURCE),SEPARATOR,CSVWriter.NO_QUOTE_CHARACTER);
       writer.writeAll(csvBody);
       writer.flush();
       writer.close();
@@ -84,9 +84,6 @@ public class DataManager {
   }
 
   public void changeTicketOwner(String oldUID, String newPrenom, String newNom, String newEmail, String newDateNaissance, String newGenre) throws Exception {
-    if(newGenre != "Male" && newGenre != "Female" && newGenre != " Male" && newGenre != " Female") {
-      throw new Exception("Le genre du nouvel acheteur est incorrect");
-    }
     int line = searchLinebyTicketNumber(oldUID);
     String newUID = oldUID.replace("FES","FESR");
     updateCSV(newUID, line, COL_UID);
